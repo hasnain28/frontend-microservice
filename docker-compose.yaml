@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     #      init: true
     networks:
-      - application
+      - hasnain-net
   frontend:
     #    image: frontend-node
     build:
@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
     #      init: true
     networks:
-      - application
+      - hasnain-net
     ports:
       - "9093:8080"
     depends_on:
@@ -24,12 +24,12 @@ services:
       image: mongo
       restart: always
       environment:
-        MONGO_INITDB_ROOT_USERNAME: root
-        MONGO_INITDB_ROOT_PASSWORD: pass12345
+        MONGO_INITDB_ROOT_USERNAME: hasnain
+        MONGO_INITDB_ROOT_PASSWORD: hasnian12345
       ports:
         - "27017:27017"
       networks:
-        - application
+        - hasnain-net
       volumes:
         - mongodata:/data/db
 
@@ -52,13 +52,13 @@ services:
           timeout: 10s
           retries: 3
         networks:
-          - application
+          - hasnain-net
         ports:
           - "8081:8081"
         restart: always
 
 networks:
-  application:
+  hasnain-net:
   #name: application
 volumes:
   mongodata:
