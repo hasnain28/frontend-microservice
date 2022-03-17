@@ -3,7 +3,7 @@ services:
   backend:
     #    image: backend-python
     build:
-      context: https://github.com/hasnain28/backend-microservice.git#main
+      context: https://github.com/hasnain28/backend-microservice/backend.git#main
       dockerfile: Dockerfile
     #      init: true
     networks:
@@ -43,7 +43,7 @@ services:
           - ME_CONFIG_BASICAUTH_USERNAME=admin
           - ME_CONFIG_BASICAUTH_PASSWORD=admin123
         volumes:
-          - mongodata
+          - mongodata:/data/db
         depends_on:
           - mongodb
         healthcheck:
