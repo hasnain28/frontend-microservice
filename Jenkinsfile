@@ -7,7 +7,7 @@ pipeline {
     stage('Build') {
 			steps {
 				dir('frontend-node'){
-					sh 'docker build -t hasnainzaib/why'
+					sh 'docker build -t hasnainzaib/why .'
 				}
 			}
 		}
